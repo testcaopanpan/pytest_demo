@@ -192,7 +192,7 @@ class TestMeeting:
         res = requests.post(url,data)
         content = res.json()
         code = content['code']
-        #设置log输出信息
+        #设置log输出信息内容
         logger.info('请求地址是{},请求参数是{},响应信息是{}'.format(url,data,res.json()))
         assert code == 0
 
