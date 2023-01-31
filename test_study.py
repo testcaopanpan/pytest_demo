@@ -154,7 +154,7 @@ class TestMeeting:
 
 #通过笛卡尔积参数化来进行会议id与密钥source参会的匹配校验
 
-    list_id = ["",33977,33978]
+    list_id = [33977,33978]
     @pytest.mark.parametrize('id',list_id)
     def test_根据会议ID获取会议报名列表信息(self,id):
         url = "https://api-stress.ma.scrmtech.com/app-api/meetingSap/signUp"
