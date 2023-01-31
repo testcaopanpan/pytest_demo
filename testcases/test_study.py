@@ -197,6 +197,3 @@ class TestMeeting:
         assert code == 0
 
 
-
-if __name__ =="__main__":
-    pytest.main("-vs")
