@@ -76,7 +76,7 @@ pytest异常处理
 
 '''
 
-import pytest,requests,yaml
+import pytest,requests
 from python_study.pytest_demo.file_read import get_excel
 from python_study.pytest_demo.common import get_log
 from datetime import datetime
@@ -136,9 +136,7 @@ def test_pytest_raise():
     assert exc_info.value.args[0] =="Value error"
 
 
-#设置日志名称
-name = "case"+datetime.now().date().strftime('%Y%m%d')+".log"
-logger = get_log.get_log(name)
+
 
 class TestMeeting:
     def setup_class(self):
@@ -175,6 +173,12 @@ class TestMeeting:
         data  = content['data']
         print(data['total'])
         assert code == 0
+        # 设置日志名称
+        name = "case" + datetime.now().date().strftime('%Y%m%d') + ".log"
+        logger = get_log.get_log(name)
+        # 设置log输出信息内容
+        logger.info('请求地址是{},请求参数是{},响应信息是{}'.format(url, data, res.json()))
+        assert code == 0
 
     @pytest.mark.parametrize("source,appid,secret",get_excel())
     def test_会议行为记录(self,source,appid,secret):
@@ -192,6 +196,9 @@ class TestMeeting:
         res = requests.post(url,data)
         content = res.json()
         code = content['code']
+        # 设置日志名称
+        name = "case" + datetime.now().date().strftime('%Y%m%d') + ".log"
+        logger = get_log.get_log(name)
         #设置log输出信息内容
         logger.info('请求地址是{},请求参数是{},响应信息是{}'.format(url,data,res.json()))
         assert code == 0
