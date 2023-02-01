@@ -1,1 +1,0 @@
-[32mINFO    [0m case20230201.log:test_study.py:180 请求地址是https://api-stress.ma.scrmtech.com/app-api/meetingSap/signUp,请求参数是{'total': '1', 'list': []},响应信息是{'code': 0, 'message': '请求成功', 'data': {'total': '1', 'list': []}}
